@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contas a Pagar ou Pagas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e24be124-ae03-46bf-b30b-ce1edea49816">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="4"/>
+	<parameter name="numero" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from contaspagar where numero=$P{numero}]]>
+	</queryString>
+	<field name="numero" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_pagamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_a_pagar" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_vencimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_lancamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="4c3a95ec-8352-43bd-85e3-9c9da2fa58a9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="59" y="34" width="433" height="45" uuid="a7026171-6d04-4227-a6af-2992cfe5e407"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Contas a Pagar/Pagas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="100" height="20" uuid="7dbc6700-47f6-43cf-a703-8c77debedc64"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="29" y="36" width="100" height="20" uuid="ede7fd92-6f8a-48df-8515-d161bff2ba13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="424" y="0" width="100" height="20" uuid="080d2d38-f2b0-4c2a-96d4-1551389a9ec6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="36" width="100" height="20" uuid="dd9e8ca9-14d4-42dc-a746-cb71a8ca4a70"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="378" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="14" width="100" height="20" uuid="faeb08ff-8c74-4087-8843-29ee7eb0d0c8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Lançamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="14" width="100" height="20" uuid="e326f200-1eee-48a1-ae6c-fed6c40de973"/>
+				<textFieldExpression><![CDATA[$F{data_lancamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="48" width="100" height="20" uuid="26e843a4-96fc-4b7b-b88e-95fc1e7043da"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Pagamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="48" width="100" height="20" uuid="adb50110-c72a-4bce-9481-5c7a6d4e6528"/>
+				<textFieldExpression><![CDATA[$F{data_pagamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="87" width="100" height="20" uuid="a2463dad-8d30-4c40-9fb5-8574c40af1d8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Vencimento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="87" width="100" height="20" uuid="4d218a62-abe2-4b55-83d4-78ce96854fbc"/>
+				<textFieldExpression><![CDATA[$F{data_vencimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="133" width="526" height="169" uuid="5436d82b-0ce3-4098-8f76-a7c1bca59525"/>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="232" y="97" width="100" height="20" uuid="58c7e559-b0e3-419f-adcd-f70e72fdf148"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="343" width="100" height="20" uuid="244b9c75-bd10-4cde-93ef-d8b63c8340f7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="343" width="100" height="20" uuid="5cc0cc1f-1c83-465a-b1b6-c3e3ecf8bf74"/>
+				<textFieldExpression><![CDATA[$F{valor_a_pagar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="25" width="100" height="20" uuid="44e76680-8682-492d-8f44-97294cadf5dc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

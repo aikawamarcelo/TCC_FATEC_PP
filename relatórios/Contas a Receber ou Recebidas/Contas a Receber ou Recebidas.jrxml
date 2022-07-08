@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Contas a Receber ou Recebidas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a05282c-54d0-417b-8f33-96df5002768d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numero" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="consulta_numero" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from contasreceber where consulta_numero = $P{consulta_numero}]]>
+	</queryString>
+	<field name="consulta_numero" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_lancamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_recebimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_a_receber" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="37" y="36" width="518" height="43" uuid="482fc6bd-c69a-4b50-a069-9197d5668940"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Contas a Receber/Recebidas]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="4" width="100" height="20" uuid="ca462150-2627-4773-99f7-a508f45d22c7"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="37" y="0" width="100" height="20" uuid="ff5e6a47-4da5-4692-baa5-d490f0682767"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consulta]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="37" y="31" width="100" height="20" uuid="de191e25-fedc-4c18-85d9-7ca4830d137b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{consulta_numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="336" y="0" width="100" height="20" uuid="99922941-860b-482d-8178-ebf45f9dd8cb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="31" width="100" height="20" uuid="48ce7017-6078-426d-8152-318d00c26ff6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="202" splitType="Stretch">
+			<textField>
+				<reportElement x="336" y="38" width="100" height="20" uuid="b87f5da3-99e7-44b8-b69a-14d331f99037"/>
+				<textFieldExpression><![CDATA[$F{data_lancamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="38" width="100" height="20" uuid="45e4c1bb-0200-4223-b481-a982f721d7f1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Lançamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="85" width="100" height="20" uuid="b7dfc983-641a-40a6-8d1b-8e61e79c0a5c"/>
+				<textFieldExpression><![CDATA[$F{data_recebimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="85" width="114" height="20" uuid="afaae12a-c35f-48d2-a15b-2ed9580b5759"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Recebimento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="176" width="100" height="20" uuid="d4f7f44e-3b73-4940-8d52-998472d63b09"/>
+				<textFieldExpression><![CDATA[$F{valor_a_receber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="176" width="100" height="20" uuid="8c17e1cc-3917-4ac3-8c4a-767d8ee97978"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="135" width="100" height="20" uuid="631c6a2b-d05c-417d-a9c6-6c4a65233243"/>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="135" width="114" height="20" uuid="9d970ab0-2f7f-4d73-b6ad-3d2f876cd07f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Forma de Pagamento]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="14dd9a77-8c8a-4079-a7d3-15374548d9ed"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

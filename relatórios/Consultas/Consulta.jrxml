@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Consulta" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="74605eb3-5600-458a-b9a7-7cc3d6777f04">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Sun Jul 26 00:33:38 BRT 2020"/>
+	<parameter name="numero" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from consulta where numero = $P{numero}]]>
+	</queryString>
+	<field name="numero" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="causas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sintomas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observacoes" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome_psicologo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Psicologo_cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome_paciente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Paciente_cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="403189bc-ad8f-4037-8bcb-872e4e4610fc"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="126" y="20" width="543" height="48" uuid="a07c88f6-b212-4faf-ab26-248a6b84d8d9"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Consulta]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="77" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="47" width="100" height="20" uuid="3547193a-8068-404e-a204-0f01c9ac64bc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="14" width="100" height="20" uuid="e9f37917-f9e6-4679-8226-d405178c9a7a"/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="14" width="100" height="20" uuid="a8cc52f5-5f1d-4b3b-a546-fa37f21510e5"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="14" width="100" height="20" uuid="a00b01ee-b1a9-4414-8886-fe7bc732dc34"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="14" width="27" height="20" uuid="7158e6a7-2b96-4cdb-823a-d451fa1fc3b8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="14" width="32" height="20" uuid="061af417-d1e4-407e-9169-db7ecbbf1d92"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="112" y="0" width="100" height="20" uuid="cd9136a5-d3ee-476b-b6d7-a5b0361b582a"/>
+				<textFieldExpression><![CDATA[$F{nome_psicologo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="0" width="100" height="20" uuid="d69810bd-6d08-4b1f-a7ef-20cbe94c8313"/>
+				<textFieldExpression><![CDATA[$F{nome_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="2678491b-02bf-43f7-bfa2-850d50146ade"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Psicólogo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="0" width="68" height="20" uuid="74b45138-c7eb-42a2-9996-c18b767512bb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="499" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="47" width="266" height="84" uuid="da070305-6a5a-4e09-afab-d70c8707e7a4"/>
+				<textFieldExpression><![CDATA[$F{causas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="12" width="59" height="20" uuid="4d7c27ba-8e53-4544-a9e4-5dbffd6be116"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Causas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="276" y="47" width="279" height="84" uuid="55efc495-f292-4f33-925d-66468410b7af"/>
+				<textFieldExpression><![CDATA[$F{sintomas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="376" y="12" width="100" height="20" uuid="b88f2492-981e-451e-9c84-c3210b8ee4ad"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sintomas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="173" width="555" height="326" uuid="e9429c32-b86c-4cc2-9e47-47f777ec844b"/>
+				<textFieldExpression><![CDATA[$F{observacoes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="141" width="100" height="20" uuid="a608296a-61d4-4651-a322-a5667b4e10a2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observações]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="25" width="100" height="20" uuid="b385c5cc-9843-478e-b246-ef290596b2ac"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
